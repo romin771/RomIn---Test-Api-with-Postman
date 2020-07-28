@@ -1,0 +1,246 @@
+{
+	"info": {
+		"name": "Postman Test Turorial",
+		"_postman_id": "19cc9f3c-5c32-bb75-dcf4-389952be47f0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - All Friends",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4000/api/friends",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Friends By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4000/api/friends/9",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends",
+						"9"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+    },
+    {
+      "name": "GET - Friends By Email",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "localhost:4000/api/friends?email=kiarashghorbani1992@gmail.com",
+          "host": [
+            "localhost"
+          ],
+          "port": "4000",
+          "path": [
+            "api",
+            "friends"
+          ],
+          "query": [
+            {
+              "key": "email",
+              "value": "kiarashghorbani1992@gmail.com",
+              "equals": true
+            }
+          ]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+		{
+			"name": "GET - Friends By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4000/api/friends?name=Nissa",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Nissa",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Friends By Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4000/api/friends?location=IR",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "IR",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Friends By Phone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4000/api/friends?phone=912",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "912",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Update Location",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"current_location\": \"IR\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4000/api/friends/15",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends",
+						"15"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Add Friend",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"friend\": \"Rahele Nazari\",\n    \"email_address\": \"rahiNZ@gmail.com\",\n    \"phone\": \"(937) 5675904\",\n    \"current_location\": \"IR\"\n}"
+				},
+				"url": {
+					"raw": "localhost:4000/api/friends",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Remove Friend",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:4000/api/friends/16",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"friends",
+						"16"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
