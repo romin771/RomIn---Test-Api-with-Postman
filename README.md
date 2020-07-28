@@ -18,7 +18,7 @@ To do so go through the steps:  
   - The server will run on port 4000 
 
 
-<img src="" />
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R1.png" />
 
 
 ## Stage 1
