@@ -34,15 +34,14 @@ At this stage, we want to import our collection of requests to Postman.
   * Drag and Drop your collection file which called `our Api collection.json` and is isinside of the `Collection` folder.
 * Confirm your import by clicking on orange Import button. 
 
-<img src="" />
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R2.gif" />
 
 
 * Now, you have a collection called `Postman Test Tutorial`. 
 * click on it to see the different list of HTTP requests.
   * Http Request is used to structure request and responses for effective communication between a client and a server. You can find more about HTTP Request <a href="https://learning.postman.com/docs/getting-started/sending-the-first-request/"> here.</a> 
 
-<img src="" />
-
+  <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R3.png" />
 
 ## Stage 2
 
@@ -56,7 +55,7 @@ At this stage, we will create a Postman test to fetch all of friends.
 * Then click on `Send` button. 
   * Now you should see all the list of friends with their information under the Body section.
 
-<img src="" />
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R4.gif" />
 
 
 * Click on the `Tests` tab.
@@ -107,7 +106,7 @@ In this Stage, we will create a Postman test to fetch Friends by their ID.
 * Then click on the `Send` button.
   * Now you should see only the friend which its id is equal to `9`.
 
-<img src="" />
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R5.png" />
 
 
 * Create a test that checks that the status code is `200`.
@@ -159,7 +158,7 @@ At this stage, we will create a Postman test to fetch friends by their email add
 * Click on the `Send` button.
   * Not you should see the friend who's email is equal to `kiarashghorbani1992@gmail.com`.
 
-<img src="" />
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R6.png" />
 
 * Create a test that checks that the status code is `200`.
 * Create a test to checks that the friend's email is equal to `kiarashghorbani1992@gmail.com`.
@@ -198,7 +197,7 @@ At this stage, we will create a Postman test to fetch friends by their name.
 * Click on the `Send` button.
   * Now you should see only the friend which her name is `Nissa`.
 
-<img src="" />
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R7.png" />
 
 
 * Create a test that checks that the status code is `200`.
@@ -240,7 +239,7 @@ At this stage, we will create a Postman test to fetch friends by their Location.
 * Click the `Send` button.
   * Now you should see only the friends who lives in Iran and their Location is equal to  `IR`.
 
-<img src="" />
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R8.png" />
 
 
 * Create a test that checks that the status code is `200`.
