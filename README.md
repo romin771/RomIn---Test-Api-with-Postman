@@ -59,8 +59,8 @@ At this stage, we will create a Postman test to fetch all of friends.
 
 
 * Click on the `Tests` tab.
-* Create a test that cheks the status code is `OK`.
-* Create a test that checks the status code is `200`.
+* Create a test to cheks the status code is `OK`.
+* Create a test to checks the status code is `200`.
 * Create a test to checks that 15 friends are retrieved.
 * After writing your tests, click on `Send` again to see if your tests pass or fail.
 
@@ -109,8 +109,8 @@ In this Stage, we will create a Postman test to fetch Friends by their ID.
 <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R5.png" />
 
 
-* Create a test that checks that the status code is `200`.
-* Create a test that checks that friend `9` has the following information:
+* Create a test to checks that the status code is `200`.
+* Create a test to checks that friend `9` has the following information:
   * `id` equal to `9`.
   * `friend` equal to `"Parham Ebrahimi"`.
   * `email_address` equal to `"parham.toupaebrahimi@gmail.com"`.
@@ -125,6 +125,7 @@ In this Stage, we will create a Postman test to fetch Friends by their ID.
 
 ```js
 const response = pm.response.json();
+
 const friend9 = {
   id: 9,
   friend: "Parham Ebrahimi",
@@ -137,7 +138,8 @@ pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
 
-pm.test("Correct object in response for ID 9", function() {
+//friends id=9 information is same as response 
+pm.test("data is same as id 9", function() {
   pm.expect(response).to.eql(friend9);
 });
 ```
@@ -160,7 +162,7 @@ At this stage, we will create a Postman test to fetch friends by their email add
 
 <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R6.png" />
 
-* Create a test that checks that the status code is `200`.
+* Create a test to checks that the status code is `200`.
 * Create a test to checks that the friend's email is equal to `kiarashghorbani1992@gmail.com`.
 
 ### Solution
@@ -176,6 +178,7 @@ pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
 
+//test to check response is equal to what we expect
 pm.test("response has a email equal to desire one", function() {
   pm.expect(response.email).to.eql("kiarashghorbani1992@gmail.com");
 });
@@ -200,8 +203,8 @@ At this stage, we will create a Postman test to fetch friends by their name.
 <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R7.png" />
 
 
-* Create a test that checks that the status code is `200`.
-* Create a test that checks `Nissa Amini` appears in the results.
+* Create a test to checks that the status code is `200`.
+* Create a test to checks `Nissa Amini` appears in the results.
 
 ### Solution
 
@@ -215,6 +218,7 @@ const res = pm.response.json();
 pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
+
 
 pm.test("my friend Nissa Amini is in the response", function() {
   const friendExists = response.some(
@@ -238,11 +242,12 @@ At this stage, we will create a Postman test to fetch friends by their Location.
 * Click on the fifth request from the collection `GET - Students by Location`.
 * Click the `Send` button.
   * Now you should see only the friends who lives in Iran and their Location is equal to  `IR`.
+  * We can provide our desirable location either by adding query after base url or in `params` section. 
 
 <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R8.png" />
 
 
-* Create a test that checks that the status code is `200`.
+* Create a test to checks that the status code is `200`.
 * Create a test to checks that all returned friends have a location of `IR`.
 
 ### Solution
@@ -252,17 +257,17 @@ At this stage, we will create a Postman test to fetch friends by their Location.
 <summary> <code> GET - Friends by Grade </code> </summary>
 
 ```js
-const res = pm.response.json();
+cconst res = pm.response.json();
 
 pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
 
-pm.test('Correct students returned for "C" grade', function() {
-  const correctGrades = response.every(
-    student => student.current_grade === "C"
+pm.test('there are 9 friend retrieved correctly', function() {
+  const Location = res.every(
+    student => student.current_location === "IR"
   );
-  pm.expect(correctGrades).to.be.true;
+  pm.expect(Location).to.be.true;
 });
 ```
 
@@ -281,6 +286,9 @@ At this stage, we will create a Postman test to fetch friends by their phone.
 * Click on the sixth request from the collection `GET - Friends by Phone`.
 * Click the `Send` button.
   * Now you should see only the friend who's their phone prefix is `912`.
+
+  <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R9.png" />
+
 * Create a test that checks that the status code is `200`.
 * Create a test to checks that all returned friends have a `phone` property that contains `912` prefix.
 
@@ -297,9 +305,10 @@ pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
 
-pm.test("All objects contain '608'", function() {
-  const checkPhoneNumbers = response.every(student =>
-    student.phone.includes("608")
+// return all those who have 912 phone prefix 
+pm.test("All friends contain '912'", function() {
+  const checkPhoneNumbers = res.every(student =>
+    student.phone.includes("912")
   );
   pm.expect(checkPhoneNumbers).to.be.true;
 });
@@ -317,11 +326,16 @@ At this stage, we will create a Postman test to update a friend's location.
 ### To Do So: 
 
 * Click on the seventh request from the collection `PUT - Update Location`.
+  * You should provide your new data in Body sextion 
 * Click the `Send` button.
   * Now you should see the friend with `id` number `15` has a location of `IR`.
+
+  <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R10.png" />
+
 * Create a test to checks that the status code is `200`.
 * Create a test to checks that the id is equal to `15`.
 * Create a test to checks that returned data has a `location` of `IR`.
+
 
 ### Solution
 
@@ -330,18 +344,19 @@ At this stage, we will create a Postman test to update a friend's location.
 <summary> <code> PUT - Update Location </code> </summary>
 
 ```js
-const res = pm.response.json();
+const response = pm.response.json();
 
 pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
 
-pm.test("Returns student with correct Id", function() {
+pm.test("Returns friend with correct Id", function() {
   pm.expect(response.id).to.eql(15);
 });
 
-pm.test("Correctly updates grade to A-", function() {
-  pm.expect(response.current_grade).to.eql("A-");
+//retrieved friend's location is IR
+pm.test("Friend's location = IR", function() {
+  pm.expect(response.current_location).to.eql("IR");
 });
 ```
 
@@ -358,8 +373,12 @@ At this stage, we will create a Postman test to add a new friend to our list.
 ### To Do So: 
 
 * Click on the eighth request from the collection `POST - Add Friend`.
+  * we should provide our data in `Body` section
 * Click the `Send` button.
   * Now you should see friend with an `id` created by the server and properties that match the data sent in the body.
+
+  <img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R11.png" />
+
 * Create a test to checks that the status code is `200`.
 * Create a test to checks the friend has an `id`.
 * Create a test to checks if the friend matches the expected schema.
@@ -376,10 +395,10 @@ At this stage, we will create a Postman test to add a new friend to our list.
 <summary> <code> POST - Add Friend </code> </summary>
 
 ```js
-const res = pm.response.json();
+const response = pm.response.json();
 
 const schema = {
-  title: "Student",
+  title: "Friend",
   type: "object",
   properties: {
     id: {
@@ -398,25 +417,25 @@ const schema = {
       type: "string"
     }
   },
-  required: ["id", "student", "email_address", "phone", "current_grade"]
+  required: ["id", "friend", "email_address", "phone", "current_location"]
 };
 
 pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
 
-pm.test("Student was created", function() {
+pm.test("friends was created", function() {
   pm.expect(response.id).to.exist;
 });
 
-pm.test("Student should match schema", function() {
+pm.test("Friend match expected schema", function() {
   pm.expect(tv4.validate(response, schema)).to.be.true;
 });
 
-pm.test("Student has correct information", function() {
-  pm.expect(res.student).to.eql("Tim Allen");
-  pm.expect(res.email_address).to.eql("tim@homeimprovement.com");
-  pm.expect(res.phone).to.eql("(408) 8674530");
+pm.test("created friend  has correct information", function() {
+  pm.expect(response.friend).to.eql("Rahele Nazari");
+  pm.expect(response.email_address).to.eql("rahiNZ@gmail.com");
+  pm.expect(response.phone).to.eql("(937) 5675904");
 });
 ```
 
@@ -435,6 +454,9 @@ At this stage, we will create a Postman test to remove a friend.
 * Click on the ninth request from the collection `DELETE - Remove Friend`.
 * Click the `Send` button.
   * Now you should see the student the `id` of `16` which we just created in previous stage.
+
+<img src="https://github.com/romin771/RomIn---Test-Api-with-Postman/blob/master/readme-assets/R12.png" />
+
 * Create a test to checks that the status code is `200`.
 * Create a test to checks that the return student `id` is equal to `16`.
 
@@ -445,19 +467,19 @@ At this stage, we will create a Postman test to remove a friend.
 <summary> <code> DELETE - Remove Friend </code> </summary>
 
 ```js
-const res = pm.response.json();
+const friend = pm.response.json();
 
 pm.test("Status code is 200", function() {
   pm.response.to.have.status(200);
 });
 
-pm.test("Student w/ ID 18 removed", function() {
-  pm.expect(res.id).to.eql(18);
+//friend with id = 16 deleted 
+pm.test("friend with desired id is removed", function() {
+  pm.expect(friend.id).to.eql(16);
 });
 ```
 
 </details>
-
 
 
 ## Stage 11
