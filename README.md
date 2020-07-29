@@ -495,9 +495,9 @@ At this stage we want to run the entire postman collection to see them all pass 
 * Click on the blue `Run Postman Test...` button.
 
 ### Solution
+ //will update soon
 
-
-## Contributions
+## End 
 
 hope this file could be already useful to you as i tried to gather and compact whatever essential you need to know how to test Api collections. 
 
